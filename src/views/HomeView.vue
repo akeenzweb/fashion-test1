@@ -11,7 +11,9 @@
 
         <div class="col-md-4 mobile">
     <!--<MobileConsole></MobileConsole>-->
-
+          <div class="msg">
+            <div v-show="elementVisible" class="msg-wishlist">Added to your Wish list</div>
+          </div>
           <form>
             <input type="text" placeholder="Search " class="search">
             <!--<i class="fa fa-search" aria-hidden="true"></i>-->
@@ -37,7 +39,7 @@
 
           <div class="row" >
             <ul class="gallary masonry-with-columns-2" id="masonry-with-columns-2">
-              <div class="wrap"><li><img src="../assets/gallary/gal1.jpeg"></li><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart-o" aria-hidden="true"></i></div>
+              <div class="wrap"><li><img src="../assets/gallary/gal1.jpeg"></li><i :class="wishlist ? 'z-index' : 'no-index'" class="fa fa-heart" aria-hidden="true" @click="wishlist = !wishlist; elementVisible = !elementVisible; visible()"></i><i class="fa fa-heart-o" aria-hidden="true" @click="wishlist = !wishlist; elementVisible = !elementVisible; visible()"></i><iframe v-show="elementVisible" src="https://embed.lottiefiles.com/animation/91069"></iframe></div>
               <div class="wrap"><li><img src="../assets/gallary/gal2ii.jpeg"></li><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart-o" aria-hidden="true"></i></div>
               <div class="wrap"><li><img src="../assets/gallary/gal3.jpeg"></li><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart-o" aria-hidden="true"></i></div>
               <div class="wrap"><li><img src="../assets/gallary/gal4.jpeg"></li><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart-o" aria-hidden="true"></i></div>
@@ -87,7 +89,18 @@ export default {
     //HelloWorld
     //mobileConsole,
     //MobileConsole
-},
+  },
+  data() {
+    return {
+      wishlist: false,
+      elementVisible: false
+    }
+  },
+  methods: {
+    visible() {
+      setTimeout(() => this.elementVisible = false, 4000)
+    }
+  },
   mounted() {
     // initialize masonry
     var row = document.querySelector("[data-masonry]");
@@ -96,6 +109,7 @@ export default {
       percentPosition: true,
     });
   },
+
 }
 </script>
 
@@ -207,6 +221,11 @@ export default {
   /* This z-indez below is when the use clicks the wishlist */
   /*z-index: 1;*/
 }
+.wrap iframe {
+  position: absolute;
+  z-index: 1;
+  left: 0%;
+}
 .gallary li:nth-child(2n){
   /*margin-left: 5px;*/
   float: right;
@@ -216,8 +235,24 @@ export default {
   width: 100%;
   /*z-index: 2;*/
 }
-
-
+.msg-wishlist {
+  width: 100%;
+  background-color: rgb(68, 219, 131);
+  color: #fff;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  position: fixed;
+  top: 0%;
+  opacity: 0.7;
+  margin-left: -20px;
+  z-index: 1;
+  transition: all 0.5s ease;
+}
+.z-index {
+  z-index: 1;
+  transition: all 0.5s ease;
+}
 
 /*.masonry-with-flex {
     display: -webkit-box;
