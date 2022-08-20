@@ -10,8 +10,6 @@
 
 
         <div class="col-md-4 mobile">
-    <MobileConsole></MobileConsole>
-
           <form>
             <input type="text" placeholder="Search " class="search">
             <!--<i class="fa fa-search" aria-hidden="true"></i>-->
@@ -41,13 +39,8 @@
               <li><img src="../assets/gallary/gal2ii.jpeg"></li>
               <li><img src="../assets/gallary/gal3.jpeg"></li>
               <li><img src="../assets/gallary/gal4.jpeg"></li>
-              <li><img src="../assets/gallary/gal5.jpeg"></li>
-              <li><img src="../assets/gallary/gal6.jpeg"></li>
-              <li><img src="../assets/gallary/gal8.jpeg"></li>
-              <li><img src="../assets/gallary/gal9.jpeg"></li>
-              <li><img src="../assets/gallary/gal10.jpeg"></li>
-              <li><img src="../assets/gallary/gal11.jpeg"></li>
-
+              <!--<li><img src="../assets/gallary/gal5.jpeg"></li>
+              <li><img src="../assets/gallary/gal6.jpeg"></li>-->
 
               <!--<li>rrd</li>
               <li>fxcxc</li>-->
@@ -68,7 +61,6 @@
         <div class="col-md-4"></div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -78,16 +70,13 @@
 //import { Stack, StackItem } from "vue-stack-grid";
 
 import Masonry from "masonry-layout"
-import mobileConsole  from '../components/mobile-console'
-import MobileConsole from "@/components/mobile-console.vue";
 
 export default {
   name: 'HomeView',
   components: {
     //HelloWorld
-    mobileConsole,
-    MobileConsole
-},
+
+  },
   mounted() {
     // initialize masonry
     var row = document.querySelector("[data-masonry]");
@@ -112,11 +101,10 @@ export default {
 }
 
 .mobile {
-  /*border: 1px solid grey;*/
+  border: 1px solid grey;
   height: 100%;
   margin-top: 0px;
   padding: 20px;
-  padding-bottom: 0%;
 
   position: relative;
 }
@@ -172,17 +160,12 @@ export default {
 }
 
 .gallary {
-  /*column-count: 1;*/
-  columns: 2;
-  column-gap: 10px;
-  width: 100%;
-
-  margin-bottom: 60px;
+  column-count: 1;
 }
 .gallary li {
   display: inline-block;
   list-style: none;
-  width: 100%;
+  width: 47%;
   /*height: 200px;*/
   /*border: 1px solid rgb(182, 183, 243);*/
   margin-top: 10px;
