@@ -10,7 +10,7 @@
 
 
         <div class="col-md-4 mobile">
-    <MobileConsole></MobileConsole>
+    <!--<MobileConsole></MobileConsole>-->
 
           <form>
             <input type="text" placeholder="Search " class="search">
@@ -37,16 +37,16 @@
 
           <div class="row" >
             <ul class="gallary masonry-with-columns-2" id="masonry-with-columns-2">
-              <li><img src="../assets/gallary/gal1.jpeg"></li>
-              <li><img src="../assets/gallary/gal2ii.jpeg"></li>
-              <li><img src="../assets/gallary/gal3.jpeg"></li>
-              <li><img src="../assets/gallary/gal4.jpeg"></li>
-              <li><img src="../assets/gallary/gal5.jpeg"></li>
-              <li><img src="../assets/gallary/gal6.jpeg"></li>
-              <li><img src="../assets/gallary/gal8.jpeg"></li>
-              <li><img src="../assets/gallary/gal9.jpeg"></li>
-              <li><img src="../assets/gallary/gal10.jpeg"></li>
-              <li><img src="../assets/gallary/gal11.jpeg"></li>
+              <div class="wrap"><li><img src="../assets/gallary/gal1.jpeg"></li><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart-o" aria-hidden="true"></i></div>
+              <div class="wrap"><li><img src="../assets/gallary/gal2ii.jpeg"></li><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart-o" aria-hidden="true"></i></div>
+              <div class="wrap"><li><img src="../assets/gallary/gal3.jpeg"></li><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart-o" aria-hidden="true"></i></div>
+              <div class="wrap"><li><img src="../assets/gallary/gal4.jpeg"></li><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart-o" aria-hidden="true"></i></div>
+              <div class="wrap"><li><img src="../assets/gallary/gal5.jpeg"></li><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart-o" aria-hidden="true"></i></div>
+              <div class="wrap"><li><img src="../assets/gallary/gal6.jpeg"></li><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart-o" aria-hidden="true"></i></div>
+              <div class="wrap"><li><img src="../assets/gallary/gal8.jpeg"></li><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart-o" aria-hidden="true"></i></div>
+              <div class="wrap"><li><img src="../assets/gallary/gal9.jpeg"></li><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart-o" aria-hidden="true"></i></div>
+              <div class="wrap"><li><img src="../assets/gallary/gal10.jpeg"></li><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart-o" aria-hidden="true"></i></div>
+              <div class="wrap"><li><img src="../assets/gallary/gal11.jpeg"></li><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart-o" aria-hidden="true"></i></div>
 
 
               <!--<li>rrd</li>
@@ -78,15 +78,15 @@
 //import { Stack, StackItem } from "vue-stack-grid";
 
 import Masonry from "masonry-layout"
-import mobileConsole  from '../components/mobile-console'
-import MobileConsole from "@/components/mobile-console.vue";
+//import mobileConsole  from '../components/mobile-console'
+//import MobileConsole from "@/components/mobile-console.vue";
 
 export default {
   name: 'HomeView',
   components: {
     //HelloWorld
-    mobileConsole,
-    MobileConsole
+    //mobileConsole,
+    //MobileConsole
 },
   mounted() {
     // initialize masonry
@@ -161,8 +161,8 @@ export default {
   border: 1px solid rgb(231, 231, 231);
   text-align: center;
 
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   margin-right: 5px;
   border-radius: 10px;
 }
@@ -191,6 +191,22 @@ export default {
   overflow: hidden;
   column-gap:15px;
 }
+.wrap {
+  position: relative;
+}
+.wrap i {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+}
+.fa-heart {
+  color: red;
+  /* This z-indez below is when the use clicks the wishlist */
+  /*z-index: 1;*/
+}
 .gallary li:nth-child(2n){
   /*margin-left: 5px;*/
   float: right;
@@ -198,6 +214,7 @@ export default {
 .gallary li img {
   height: 100%;
   width: 100%;
+  /*z-index: 2;*/
 }
 
 
