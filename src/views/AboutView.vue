@@ -1,5 +1,6 @@
 <template>
   <div class="about">
+    <HeaderNav></HeaderNav>
     <!--<h1>This is an about page</h1>-->
     <div class="container">
       <div class="box">
@@ -61,13 +62,14 @@
 // @ is an alias to /src
 //import HelloWorld from '@/components/HelloWorld.vue'
 //import { Stack, StackItem } from 'vue-stack-grid';
-
+import HeaderNav from '../components/header.vue'
 export default {
   name: 'HomeView',
   components: {
     //HelloWorld
     //Stack,
     //StackItem
+    HeaderNav
   }
 }
 </script>

@@ -1,8 +1,10 @@
 <template>
   <div class="home">
+    <headerNav></headerNav>
     <!--<img alt="Vue logo" src="../assets/logo.png">-->
     <!--<HelloWorld msg="Welcome to Your Vue.js App"/>-->
     <div class="container-fluid">
+
       <div class="row">
         <div class="col-md-4"></div>
 
@@ -39,7 +41,10 @@
 
           <div class="row" >
             <ul class="gallary masonry-with-columns-2" id="masonry-with-columns-2">
-              <div class="wrap"><li><img src="../assets/gallary/gal1.jpeg"></li><i :class="wishlist ? 'z-index' : 'no-index'" class="fa fa-heart" aria-hidden="true" @click="wishlist = !wishlist; elementVisible = !elementVisible; visible()"></i><i class="fa fa-heart-o" aria-hidden="true" @click="wishlist = !wishlist; elementVisible = !elementVisible; visible()"></i><iframe v-show="elementVisible" src="https://embed.lottiefiles.com/animation/91069"></iframe></div>
+
+              <router-link class="router-link" to="/item"><div v-for="(image, index) in images" :key="index" class="wrap" @click="viewItem(index)"><li ><img :src="image.url"></li><i :class="wishlist ? 'z-index' : 'no-index'" class="fa fa-heart" aria-hidden="true" @click="wishlist = !wishlist; elementVisible = !elementVisible; visible()"></i><i class="fa fa-heart-o" aria-hidden="true" @click="wishlist = !wishlist; elementVisible = !elementVisible; visible()"></i><iframe v-show="elementVisible" src="https://embed.lottiefiles.com/animation/91069"></iframe></div></router-link>
+
+              <!--<div class="wrap"><li><img src="../assets/gallary/gal1.jpeg"></li><i :class="wishlist ? 'z-index' : 'no-index'" class="fa fa-heart" aria-hidden="true" @click="wishlist = !wishlist; elementVisible = !elementVisible; visible()"></i><i class="fa fa-heart-o" aria-hidden="true" @click="wishlist = !wishlist; elementVisible = !elementVisible; visible()"></i><iframe v-show="elementVisible" src="https://embed.lottiefiles.com/animation/91069"></iframe></div>
               <div class="wrap"><li><img src="../assets/gallary/gal2ii.jpeg"></li><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart-o" aria-hidden="true"></i></div>
               <div class="wrap"><li><img src="../assets/gallary/gal3.jpeg"></li><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart-o" aria-hidden="true"></i></div>
               <div class="wrap"><li><img src="../assets/gallary/gal4.jpeg"></li><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart-o" aria-hidden="true"></i></div>
@@ -48,7 +53,7 @@
               <div class="wrap"><li><img src="../assets/gallary/gal8.jpeg"></li><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart-o" aria-hidden="true"></i></div>
               <div class="wrap"><li><img src="../assets/gallary/gal9.jpeg"></li><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart-o" aria-hidden="true"></i></div>
               <div class="wrap"><li><img src="../assets/gallary/gal10.jpeg"></li><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart-o" aria-hidden="true"></i></div>
-              <div class="wrap"><li><img src="../assets/gallary/gal11.jpeg"></li><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart-o" aria-hidden="true"></i></div>
+              <div class="wrap"><li><img src="../assets/gallary/gal11.jpeg"></li><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-heart-o" aria-hidden="true"></i></div>-->
 
 
               <!--<li>rrd</li>
@@ -81,24 +86,69 @@
 
 import Masonry from "masonry-layout"
 //import mobileConsole  from '../components/mobile-console'
-//import MobileConsole from "@/components/mobile-console.vue";
+import headerNav from "@/components/header.vue";
 
 export default {
   name: 'HomeView',
   components: {
     //HelloWorld
     //mobileConsole,
-    //MobileConsole
+    headerNav
   },
   data() {
     return {
       wishlist: false,
-      elementVisible: false
+      elementVisible: false,
+      images: [
+        {
+          url: require('../assets/gallary/gal1.jpeg'),
+          name: 'Name 1'
+        },
+        {
+          url: require('../assets/gallary/gal2ii.jpeg'),
+          name: 'Name 2'
+        },
+        {
+          url: require('../assets/gallary/gal3.jpeg'),
+          name: 'Name 3'
+        },
+        {
+          url: require('../assets/gallary/gal4.jpeg'),
+          name: 'Name 4'
+        },
+        {
+          url: require('../assets/gallary/gal5.jpeg'),
+          name: 'Name 5'
+        },
+        {
+          url: require('../assets/gallary/gal6.jpeg'),
+          name: 'Name 6'
+        },
+        {
+          url: require('../assets/gallary/gal8.jpeg'),
+          name: 'Name 8'
+        },
+        {
+          url: require('../assets/gallary/gal9.jpeg'),
+          name: 'Name 9'
+        },
+        {
+          url: require('../assets/gallary/gal10.jpeg'),
+          name: 'Name 10'
+        },
+        {
+          url: require('../assets/gallary/gal11.jpeg'),
+          name: 'Name 11'
+        },
+      ],
     }
   },
   methods: {
     visible() {
-      setTimeout(() => this.elementVisible = false, 4000)
+      setTimeout(() => this.elementVisible = false, 2000)
+    },
+    viewItem(index) {
+       this.$store.state.items = this.images[index]
     }
   },
   mounted() {
