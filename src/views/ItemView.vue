@@ -5,7 +5,10 @@
                 <!--<img src="../assets/gallary/gal3.jpeg">-->
                 <img :src="items.url">
                 <router-link to="/" class="router-link"><button><i class="fa fa-arrow-left" aria-hidden="true"></i></button></router-link>
-                <i :class="wishlist ? 'z-index' : 'no-index'" class="fa fa-heart" aria-hidden="true" @click="wishlist = !wishlist; elementVisible = !elementVisible; visible()"></i><i class="fa fa-heart-o" aria-hidden="true" @click="wishlist = !wishlist; elementVisible = !elementVisible; visible()"></i><iframe v-show="elementVisible" src="https://embed.lottiefiles.com/animation/91069"></iframe>
+                <i :class="wishlist ? 'z-index' : 'no-index'" class="fa fa-heart" aria-hidden="true" @click="wishlist = !wishlist; elementVisible = !elementVisible; visible()"></i><i class="fa fa-heart-o" aria-hidden="true" @click="wishlist = !wishlist; elementVisible = !elementVisible; visible()"></i>
+                <!--<iframe v-show="elementVisible" src="https://embed.lottiefiles.com/animation/91069"></iframe>-->
+                <iframe v-show="elementVisible" src="https://embed.lottiefiles.com/animation/53105"></iframe>
+                <iframe v-show="elementVisible" src="https://embed.lottiefiles.com/animation/101775"></iframe>
             </div>
             <div class="col-md-6"></div>
         </div>
@@ -66,7 +69,7 @@ li {
 .item i {
   position: absolute;
   top: 5%;
-  right: 10%;
+  right: 5%;
   background-color: #fff;
   padding: 10px;
   border-radius: 50%;
@@ -78,7 +81,10 @@ li {
   position: absolute;
   z-index: 1;
   left: 0%;
-  top: 0%;
+  /* New styles */
+  top: 30%;
+  transform: scale(1.9);
+  transition: all 0.4s ease;
 }
 .fa-heart {
   color: red;

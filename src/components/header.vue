@@ -16,10 +16,10 @@
         </li>
 
         <li class="nav-item">
-          <router-link to="" exact>Shipping</router-link>
+          <router-link to="/policy" exact>Shipping</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="" exact>Sign in</router-link>
+          <router-link to="/policy" exact>Sign in</router-link>
         </li>
 
       </ul>
