@@ -49,7 +49,7 @@ export default {
 * {
     margin: 0%;
     padding: 0%;
-    font-family: 'Euclid Circular A';
+    font-family: 'poppins';
 }
 
 @keyframes bounce {
